@@ -24,3 +24,12 @@ steps:
     workingDirectory: '12-CI-CD-Pipelines/Azure-Devops/AKS/'
     commandOptions: '-var="Name=$(Name)" -var="resourceGroup=$(resourceGroup)" -var="clientID=$(clientID)" -var="clientSecret=$(clientSecret)" -var="location=$(location)"'
     environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription(06e6d20f-d8ff-4658-8441-2a687f0effea)'
+
+
+- task: TerraformTaskV1@0
+  inputs:
+    provider: 'azurerm'
+    command: 'destroy'
+    workingDirectory: '12-CI-CD-Pipelines/Azure-Devops/AKS/'
+    commandOptions: '-var="Name=$(Name)" -var="resourceGroup=$(resourceGroup)" -var="clientID=$(clientID)" -var="clientSecret=$(clientSecret)" -var="location=$(location)"'
+    environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription(06e6d20f-d8ff-4658-8441-2a687f0effea)'
